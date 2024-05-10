@@ -1,0 +1,8 @@
+# ninja log v5
+3	114	7370640117373051	CMakeFiles/L2_2_.dir/main.cpp.obj	3938a4dcfa4e27a1
+9	647	7370640122737114	CMakeFiles/L2_2_.dir/money.cpp.obj	422d91a9bcf88b05
+613	750	7370659781410784	L2_2_.exe	a818c18d22bd4bfd
+7	611	7370659780051141	CMakeFiles/L2_2_.dir/tests.cpp.obj	41f42e9f904f61ff
+8	89	7370656405713991	CMakeFiles/L2_2_.dir/vectordinamic.cpp.obj	c4b357100f486c9c
+10	674	7370662074166913	CMakeFiles/L2_2_.dir/tests.cpp.obj	41f42e9f904f61ff
+675	842	7370662075811927	L2_2_.exe	a818c18d22bd4bfd
