@@ -4,10 +4,11 @@
 #pragma once
 #ifndef MONEY_H
 #define MONEY_H
+#include <istream>
 
 #endif //MONEY_H
 #pragma once
-#include <istream>
+
 using namespace std;
 class Money {
 private:

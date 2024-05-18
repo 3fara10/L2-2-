@@ -16,8 +16,7 @@ public:
     bool search(const TElem& elem);
     int size() const;
     int nroccurrences(TElem elem);
-    void destroy();
-    int getAt(int position);
+    TElem getAt(int position);
 };
 
 template<typename TElem>
@@ -78,7 +77,7 @@ int Collection<TElem>::nroccurrences(TElem elem)
     return count;
 }
 template<typename TElem>
-int Collection<TElem>::getAt(int position)
+TElem Collection<TElem>::getAt(int position)
 {
     return this->elements.getAt(position);
 }

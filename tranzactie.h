@@ -11,19 +11,21 @@ private:
     int idTranzactie;
     double suma;
     VectorDinamic<Money> bancnote;
+
 public:
     Tranzactie();
     Tranzactie(double newSum);
-    Tranzactie(double newSum,VectorDinamic<Money> newBancnote);
+    Tranzactie(double newSum, const VectorDinamic<Money>& newBancnote);
 
-    int getId();
-    int getSuma();
+    int getId() const;
+    double getSuma() const;
+    int getSize() const;
     //get bancnote
-    Money* getAll();
+    Money* getAll() const;
 
     void setId(int newId);
     void setSuma(double newSuma);
-    void setMoney(int position,Money money);
+    void setMoney(int position, const Money& money);
 };
 
 //
@@ -31,49 +33,59 @@ public:
 //
 #pragma once
 #include"tranzactie.h"
-inline Tranzactie::Tranzactie()
+
+inline Tranzactie::Tranzactie(): idTranzactie(0)
 {
-    this->suma=0;
+    this->suma = 0;
 }
 
-Tranzactie::Tranzactie(double newSum)
+inline Tranzactie::Tranzactie(double newSum): idTranzactie(0)
 {
-    this->suma=newSum;
+    this->suma = newSum;
 }
 
-Tranzactie::Tranzactie(double newSum, VectorDinamic<Money> newBancnote)
+inline Tranzactie::Tranzactie(double newSum, const VectorDinamic<Money>& newBancnote): idTranzactie(0)
 {
-    this->suma=newSum;
-    this->bancnote=newBancnote;
+    this->suma = newSum;
+    this->bancnote = newBancnote;
 }
 
-int Tranzactie::getId()
+inline int Tranzactie::getId() const
 {
     return this->idTranzactie;
 }
 
-int Tranzactie::getSuma()
+inline double Tranzactie::getSuma() const
 {
     return this->suma;
 }
 
-Money* Tranzactie::getAll()
+inline int Tranzactie::getSize() const
 {
-    return this->bancnote.getAll();
+    return this->bancnote.size();
 }
 
-void Tranzactie::setId(int newId)
+inline Money* Tranzactie::getAll() const
 {
-    this->idTranzactie=newId;
+    Money* bancnote = new Money[this->bancnote.size()]();
+    for (int i = 0; i < this->bancnote.size(); i++)
+    {
+        bancnote[i] = this->bancnote.getAt(i);
+    }
+    return bancnote;
 }
 
-void Tranzactie::setSuma(double newSuma)
+inline void Tranzactie::setId(int newId)
 {
-    this->suma=newSuma;
+    this->idTranzactie = newId;
 }
 
-void Tranzactie::setMoney(int position, Money money)
+inline void Tranzactie::setSuma(double newSuma)
 {
-    this->bancnote.setAt(position,money);
+    this->suma = newSuma;
 }
 
+inline void Tranzactie::setMoney(int position, const Money& money)
+{
+    Money x = this->bancnote.update(position, money);
+}

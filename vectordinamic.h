@@ -21,15 +21,14 @@ public:
 
     //Return the element of the i position
     TElem getAt(int i)const;
-    TElem* getAll();
+
     //Add an element at the final
     void push_back(TElem e);
     //Add an element at the i position
     void addAt(int i, TElem e);
     //Delete an element of the i position
-    void setAt(int i,TElem e);
+    TElem update(int i,TElem e);
     TElem sterge(int i);
-    VectorDinamic& operator=(const VectorDinamic& other);
 };
 
 template <class TElem>
@@ -88,12 +87,6 @@ TElem VectorDinamic<TElem>::getAt(int i) const
 }
 
 template <class TElem>
-TElem* VectorDinamic<TElem>::getAll()
-{
-    return this->elems;
-}
-
-template <class TElem>
 void VectorDinamic<TElem>::push_back(TElem e)
 {
     if (this->nrElems == this->capacity)
@@ -124,10 +117,17 @@ void VectorDinamic<TElem>::addAt(int i, TElem e)
 }
 
 template <class TElem>
-void VectorDinamic<TElem>::setAt(int i, TElem e)
+TElem VectorDinamic<TElem>::update(int i, TElem e)
 {
+    if (i < 0 || i > this->nrElems)
+    {
+        throw std::invalid_argument("Invalid input exception: index out of bounds");
+    }
+
     this->elems[i]=e;
+    return this->elems[i];
 }
+
 
 template <class TElem>
 TElem VectorDinamic<TElem>::sterge(int i)
@@ -143,21 +143,4 @@ TElem VectorDinamic<TElem>::sterge(int i)
     }
     --this->nrElems;
     return value;
-}
-
-template <class TElem>
-VectorDinamic<TElem>& VectorDinamic<TElem>::operator=(const VectorDinamic& other)
-{
-    if (this != &other)
-    {
-        delete[] this->elems;
-        this->elems = new TElem[capacity];
-        this->capacity = other.capacity;
-        this->nrElems = other.nrElems;
-        for (int i = 0; i < nrElems; ++i)
-        {
-            this->elems[i] = other.elems[i];
-        }
-    }
-    return *this;
 }

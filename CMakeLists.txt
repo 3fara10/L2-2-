@@ -9,8 +9,9 @@ add_executable(L2_2_ main.cpp
         tests.cpp
         tests.h
         tests.h
-        vectordinamic.cpp
         vectordinamic.h
         collection.h
         tranzactie.h
+        atm.cpp
+        atm.h
 )

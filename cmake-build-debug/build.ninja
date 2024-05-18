@@ -73,6 +73,12 @@ build CMakeFiles/L2_2_.dir/vectordinamic.cpp.obj: CXX_COMPILER__L2_2__unscanned_
   OBJECT_DIR = CMakeFiles\L2_2_.dir
   OBJECT_FILE_DIR = CMakeFiles\L2_2_.dir
 
+build CMakeFiles/L2_2_.dir/atm.cpp.obj: CXX_COMPILER__L2_2__unscanned_Debug C$:/Users/Home/CLionProjects/L2(2)/atm.cpp || cmake_object_order_depends_target_L2_2_
+  DEP_FILE = CMakeFiles\L2_2_.dir\atm.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\L2_2_.dir
+  OBJECT_FILE_DIR = CMakeFiles\L2_2_.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target L2_2_
@@ -81,7 +87,7 @@ build CMakeFiles/L2_2_.dir/vectordinamic.cpp.obj: CXX_COMPILER__L2_2__unscanned_
 #############################################
 # Link the executable L2_2_.exe
 
-build L2_2_.exe: CXX_EXECUTABLE_LINKER__L2_2__Debug CMakeFiles/L2_2_.dir/main.cpp.obj CMakeFiles/L2_2_.dir/money.cpp.obj CMakeFiles/L2_2_.dir/tests.cpp.obj CMakeFiles/L2_2_.dir/vectordinamic.cpp.obj
+build L2_2_.exe: CXX_EXECUTABLE_LINKER__L2_2__Debug CMakeFiles/L2_2_.dir/main.cpp.obj CMakeFiles/L2_2_.dir/money.cpp.obj CMakeFiles/L2_2_.dir/tests.cpp.obj CMakeFiles/L2_2_.dir/vectordinamic.cpp.obj CMakeFiles/L2_2_.dir/atm.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\L2_2_.dir
