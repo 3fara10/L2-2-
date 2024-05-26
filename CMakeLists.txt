@@ -14,4 +14,6 @@ add_executable(L2_2_ main.cpp
         tranzactie.h
         atm.cpp
         atm.h
+        ui.cpp
+        ui.h
 )

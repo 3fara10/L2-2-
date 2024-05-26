@@ -1,60 +1,60 @@
 #pragma once
 #include "money.h"
-Money::Money()
+Pereche::Pereche()
 {
     this->value = 0;
     this->occurrences=0;
 }
 
-Money::Money(double newValue,int newOccurrences)
+Pereche::Pereche(double newValue,int newOccurrences)
 {
     this->value = newValue;
     this->occurrences=newOccurrences;
 }
 
-Money::~Money()
+Pereche::~Pereche()
 {
 }
 
-double Money::getValue() const
+double Pereche::getValue() const
 {
     return this->value;
 }
 
-int Money::getOccurrences() const
+int Pereche::getOccurrences() const
 {
     return this->occurrences;
 }
 
-void Money::setValue(double newValue)
+void Pereche::setValue(double newValue)
 {
     this->value = newValue;
 }
 
-void Money::setOccurences(int newOccurrences)
+void Pereche::setOccurrences(int newOccurrences)
 {
     this->occurrences=newOccurrences;
 }
 
-bool Money::operator<(const Money& money) const
+bool Pereche::operator<(const Pereche& money) const
 {
     return this->value < money.value;
 }
 
-Money& Money::operator=(const Money& newMoney)
+Pereche& Pereche::operator=(const Pereche& newMoney)
 {
     this->value=newMoney.value;
     this->occurrences=newMoney.occurrences;
     return *this;
 }
 
-ostream& operator<<(ostream& os, const Money& money)
+ostream& operator<<(ostream& os, const Pereche& money)
 {
     os << money.getValue();
     return os;
 }
 
-istream& operator>>(istream& is, Money& money)
+istream& operator>>(istream& is, Pereche& money)
 {
     is >> money.value;
     return is;

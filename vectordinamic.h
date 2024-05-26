@@ -2,6 +2,7 @@
 // Created by Home on 10.05.2024.
 //
 #pragma once
+#include<stdexcept>
 template <class TElem>
 class VectorDinamic
 {
@@ -15,7 +16,7 @@ public:
     //The parametrized constructor
     VectorDinamic(int capacitate);
     ~VectorDinamic();
-
+    VectorDinamic(const VectorDinamic<TElem>& other);
     //Return the number of elements
     int size() const;
 
@@ -23,12 +24,15 @@ public:
     TElem getAt(int i)const;
 
     //Add an element at the final
-    void push_back(TElem e);
+    void push_back(const TElem& e);
     //Add an element at the i position
     void addAt(int i, TElem e);
     //Delete an element of the i position
     TElem update(int i,TElem e);
     TElem sterge(int i);
+
+    VectorDinamic<TElem>& operator=(const VectorDinamic& other);
+
 };
 
 template <class TElem>
@@ -67,7 +71,18 @@ VectorDinamic<TElem>::VectorDinamic(int capacitate)
 template <class TElem>
 VectorDinamic<TElem>::~VectorDinamic()
 {
-    delete []elems;
+    delete []this->elems;
+}
+
+template<class TElem>
+inline VectorDinamic<TElem>::VectorDinamic(const VectorDinamic<TElem>& other)
+{
+    this->capacity = other.capacity;
+    this->nrElems = other.nrElems;
+    this->elems = new TElem[capacity];
+    for (int i = 0; i < nrElems; ++i) {
+        this->elems[i] = other.elems[i];
+    }
 }
 
 template <class TElem>
@@ -87,7 +102,7 @@ TElem VectorDinamic<TElem>::getAt(int i) const
 }
 
 template <class TElem>
-void VectorDinamic<TElem>::push_back(TElem e)
+void VectorDinamic<TElem>::push_back(const TElem& e)
 {
     if (this->nrElems == this->capacity)
     {
@@ -143,4 +158,21 @@ TElem VectorDinamic<TElem>::sterge(int i)
     }
     --this->nrElems;
     return value;
+}
+
+template <class TElem>
+VectorDinamic<TElem>& VectorDinamic<TElem>::operator=(const VectorDinamic& other)
+{
+    if (this == &other) {
+        return *this;
+    }
+    delete[] this->elems;
+    this->capacity = other.capacity;
+    this->nrElems = other.nrElems;
+    this->elems = new TElem[capacity];
+    for (int i = 0; i < nrElems; ++i) {
+        this->elems[i] = other.elems[i];
+    }
+
+    return *this;
 }
